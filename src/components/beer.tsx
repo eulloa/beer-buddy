@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useInView } from 'react-intersection-observer';
 
 interface IBeerProps {
    beer: {
@@ -11,12 +12,18 @@ interface IBeerProps {
 }
 
 export const Beer = ({ beer: { description, first_brewed, image_url, name, tagline } }: IBeerProps) => {
+   const [ref, inView] = useInView({ threshold: 0 });
+
    return (
-      <div className="beer">
-         <h1>{name}</h1>
-         <p>{tagline}</p>
-         {first_brewed && <p>First brewed: {first_brewed}</p>}
-         <img src={image_url} alt={description} />
+      <div className="beer" ref={ref}>
+         {inView ?
+            <>
+               <h1>{name}</h1>
+               <p>{tagline}</p>
+               {first_brewed && <p>First brewed: {first_brewed}</p>}
+               <img src={image_url} alt={description} />
+            </> : null
+         }
       </div>
    );
 }

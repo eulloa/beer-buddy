@@ -13,7 +13,7 @@ export const AllBeers = () => {
          {error && <p data-testid="allbeers-error">{error.toString()}</p>}
          {payload && payload.length &&
             <div className="beers">
-               {payload && payload.map((beer: any, i: number) => <Beer key={`${beer.name}-${i}`} beer={beer} />)}
+               {payload.map((beer: any, i: number) => <Beer key={`${beer.name}-${i}`} beer={beer} />)}
             </div>
          }
       </>
