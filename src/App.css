@@ -24,9 +24,12 @@ p {
   font-size: .8rem;
 }
 
+.beverages {
+  padding: 1rem;
+}
+
 .beers {
   display: flex;
-  padding: 1rem;
   overflow-x: scroll;
   overflow-y: auto;
 }
@@ -34,8 +37,7 @@ p {
 .beer {
   background-color: #eee;
   border: 1px solid #ddd;
-  border-radius: 10px;
-  margin-right: 1rem;
+  border-radius: 5px;
   min-width: 350px;
 }
 

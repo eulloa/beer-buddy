@@ -1,11 +1,10 @@
 import * as React from 'react';
 import { useFetch } from '../hooks/useFetch';
 import { Beer } from './beer';
-
-const url = 'https://api.punkapi.com/v2/beers';
+import { baseUrl } from '../util/constants';
 
 export const AllBeers = () => {
-   const [isLoading, error, payload] = useFetch(url);
+   const [isLoading, error, payload] = useFetch(baseUrl);
    
    return (
       <>
