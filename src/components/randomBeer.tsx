@@ -1,16 +1,19 @@
 import * as React from 'react';
 import { Beer } from './beer';
+import  { LoadingBeer } from './skeleton';
 import { useFetch } from '../hooks/useFetch';
 import { baseUrl } from '../util/constants';
 
 export const RandomBeer = () => {
-   const [isLoading, error, payload] = useFetch(`${baseUrl}random`);
+   const [isLoading, error, randomBeer] = useFetch(`${baseUrl}random`);
 
    return (
       <>
-         {isLoading && <span data-testid="allbeers-loading">Loading...</span>}
-         {error && <p data-testid="allbeers-error">{error.toString()}</p>}
-         {payload && <Beer beer={payload[0]} />}
+         {isLoading && <LoadingBeer />}
+         {error && <p data-testid="random-beer__error">{error.toString()}</p>}
+         <div data-testid="random-beer__payload">
+            {randomBeer && randomBeer[0] && <Beer beer={randomBeer[0]} />}
+         </div>
       </>
    )
 }

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useInView } from 'react-intersection-observer';
 
-interface IBeerProps {
+interface IBeer {
    beer: {
       description?: string;
       first_brewed?: string;
@@ -11,8 +11,8 @@ interface IBeerProps {
    };
 }
 
-export const Beer = ({ beer: { description, first_brewed, image_url, name, tagline } }: IBeerProps) => {
-   const [ref, inView] = useInView({ threshold: 0 });
+export const Beer = ({ beer: { description, first_brewed, image_url, name, tagline } }: IBeer) => {
+   const [ref, inView] = useInView({ threshold: 0.5 });
 
    return (
       <div className="beer" ref={ref}>

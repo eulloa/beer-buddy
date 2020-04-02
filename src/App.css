@@ -34,6 +34,20 @@ p {
   overflow-y: auto;
 }
 
+.skeleton {
+  min-height: 250px;
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(-90deg, #F0F0F0 0%, #999999 50%, #F0F0F0 100%);
+  background-size: 400% 400%;
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+.skeleton:before {
+  content: "\00a0";
+}
+
 .beer {
   background-color: #eee;
   border: 1px solid #ddd;
@@ -53,4 +67,15 @@ p {
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+  }
+  100% {
+    background-position: -135% 0%;
+  }
 }
