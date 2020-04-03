@@ -28,6 +28,14 @@ p {
   padding: 1rem;
 }
 
+.beverages div {
+  margin: 0 0 1rem 0;
+}
+
+.beverages div:last-child {
+  margin: 0;
+}
+
 .beers {
   display: flex;
   overflow-x: scroll;
